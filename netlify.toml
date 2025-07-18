@@ -1,0 +1,23 @@
+# Netlify configuration for Next.js (App Router)
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+# Uncomment below if you use static export (next export)
+# [build]
+#   command = "next build && next export"
+#   publish = "out"
+
+[dev]
+  command = "npm run dev"
+
+# Redirect all requests to Next.js
+[[redirects]]
+  from = "/api/*"
+  to = "/api/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
